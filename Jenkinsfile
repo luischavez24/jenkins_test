@@ -1,10 +1,4 @@
 pipeline {
-  tools {nodejs "node"}
-  environment {
-    registry = 'luischavez24/jenkins_test'
-    registryCredentials = 'dockerhub'
-    dockerImage = ''
-  }
   agent any
   stages {
     stage('Install packages') {
@@ -33,7 +27,16 @@ pipeline {
             dockerImage.push()
           }
         }
+
       }
     }
+  }
+  tools {
+    nodejs 'node'
+  }
+  environment {
+    registry = 'luischavez24/jenkins_test'
+    registryCredentials = 'dockerhub'
+    dockerImage = ''
   }
 }
