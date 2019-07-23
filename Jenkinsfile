@@ -1,13 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Install packages') {
-      steps {
-        sh 'npm version'
-        sh 'npm install'
-      }
-    }
     stage('Test app') {
+      agent {
+        dockerfile {
+          filename './test.Dockerfile'
+        }
+
+      }
       steps {
         sh 'npm run test'
       }
