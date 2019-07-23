@@ -31,9 +31,6 @@ pipeline {
       }
     }
   }
-  tools {
-    nodejs 'node'
-  }
   environment {
     registry = 'luischavez24/jenkins_test'
     registryCredentials = 'dockerhub'
